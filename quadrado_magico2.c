@@ -1,5 +1,5 @@
 /* QUADRADO MáGICO
-N�VEL 1 - 3X3
+NÍVEL 1 - 3X3
 Soma = 15
 Fácil - 2 valores
 Intermediário - 0 valor
