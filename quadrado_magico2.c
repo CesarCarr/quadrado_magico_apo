@@ -126,7 +126,7 @@ int matriz1(){
             voltar2:
 
             // repetição para linhas e colunas
-            while (cont_matriz < 7){
+            while (cont_matriz < 9){
             printf("\nEscolha a linha=");
             scanf("%d", &i);
             printf("Escolha a coluna= ");
@@ -161,6 +161,140 @@ int matriz1(){
     return(0);
     }
 }
+int matriz2(){
+    int i, j;
+    char nome[30];
+    int escolha2;
+    int cont_matriz = 0;
+
+
+
+    setlocale(LC_ALL,"Portuguese");
+    printf("Voce prefere ir pelo caminho (1)facil ou (2)Intermediario\n ");
+    scanf("%d", &escolha2);
+
+    if(escolha2 == 1){
+
+        int matriz[4][4]={{0,8,0,0},
+                          {0,0,0,0},
+                          {0,0,1,0},
+                          {4,0,0,0}};
+        // Print Matriz vazia
+          for(i=0; i<4; i++){
+            for(j=0; j<4; j++){
+            printf("%5d", matriz[i][j]);
+            }
+                printf("\n");
+        }
+        // Inserção de dados da matriz
+        for ( i=0; i<4; i++ ){
+            for ( j=0; j<4; j++ ){
+            voltar3:
+            // repetição para linhas e colunas
+            while (cont_matriz < 13){
+            printf("\nEscolha a linha=");
+            scanf("%d", &i);
+            printf("Escolha a coluna= ");
+            scanf("%d", &j);
+            cont_matriz ++;
+
+			// validação da linha e coluna
+
+                if((i == 0)&& (j==1)){
+                    printf("Esse valor ja foi preenchido");
+                    matriz[0][1]= 8;
+                    goto voltar3;
+                }
+                if((i == 2)&& (j==2)){
+                   printf("Esse valor ja foi preenchido");
+                   matriz[2][2]= 1;
+                   goto voltar3;
+                }
+                if((i == 3)&& (j==0)){
+                   printf("Esse valor ja foi preenchido");
+                   matriz[3][0]= 4;
+                   goto voltar3;
+                }
+                // validação da linha e coluna
+                if(( i > 3) || (j > 3)){
+                    printf("valor de linha/coluna invalido");
+                    goto voltar3;
+                }else{
+                printf ("\nValor [%d][%d] = ",i,j);
+                scanf ("%d", &matriz[ i ][ j ]);
+                    if((matriz[ i ][ j ]<1)||(matriz[ i ][ j ]>16)){
+                        printf("Valor invalido");
+                        goto voltar3;
+                    }
+                }
+
+                }
+            }
+        }
+        // Print Matriz com novos valores
+         for(i=0; i<3; i++){
+            for(j=0; j<3; j++){
+            printf("%5d", matriz[i][j]);
+            }
+                printf("\n");
+        }
+
+    return(0);
+    }
+    if(escolha2 == 2){
+
+        int matriz[4][4]={{0,0,0,0},
+                          {0,0,0,0},
+                          {0,0,0,0},
+                          {0,0,0,0}};
+        // Print Matriz vazia
+          for(i=0; i<4; i++){
+            for(j=0; j<4; j++){
+            printf("%5d", matriz[i][j]);
+            }
+                printf("\n");
+        }
+        // Inserção de dados da matriz
+        for ( i=0; i<4; i++ ){
+            for ( j=0; j<4; j++ ){
+            voltar4:
+
+            // repetição para linhas e colunas
+            while (cont_matriz < 13){
+            printf("\nEscolha a linha=");
+            scanf("%d", &i);
+            printf("Escolha a coluna= ");
+            scanf("%d", &j);
+            cont_matriz ++;
+
+
+                // validação da linha e coluna
+                if(( i > 3) || (j > 3)){
+                    printf("valor de linha/coluna invalido");
+                    goto voltar4;
+                }else{
+                printf ("\nValor [%d][%d] = ",i,j);
+                scanf ("%d", &matriz[ i ][ j ]);
+                    if((matriz[ i ][ j ]<1)||(matriz[ i ][ j ]>9)){
+                        printf("Valor invalido");
+                        goto voltar4;
+                    }
+                }
+
+                }
+            }
+        }
+        // Print Matriz com novos valores
+         for(i=0; i<3; i++){
+            for(j=0; j<3; j++){
+            printf("%5d", matriz[i][j]);
+            }
+                printf("\n");
+        }
+
+    return(0);
+    }
+}
 
 int main(){
     int escolha, nivel1(), nivel2();
@@ -173,22 +307,22 @@ int main(){
     scanf("\t %s",&nome);
     // retorno do nome
     printf("\t%s...um nome realmente estranho.\n",nome);
-    printf("\tVai se atrever a tentar resolver o cubo ou ir� correr com o rabo entre as pernas??\n");
+    printf("\tVai se atrever a tentar resolver o cubo ou irá correr com o rabo entre as pernas??\n");
     // Escolhas
-    printf("\t\nEscolha sua op��o de jogo: ");
+    printf("\t\nEscolha sua opção de jogo: ");
     printf("\t\n1 - Quadrado 3x3 de 1 a 9");
     printf("\t\n2 - Quadrado 4x4 de 1 a 16");
     printf("\t\n3 - Fechar o Jogo\n");
-    fflush(stdin); //Limpar os espa�os
+    fflush(stdin); //Limpar os espaços
     scanf("%d", &escolha);
 
     // Escolha da matriz
     switch (escolha) {
     case 1:
-        matriz1(); //fun��o nivel1
+        matriz1(); //função nivel1
         break;
     case 2:
-        //matriz2(); //fun��o nivel2
+        matriz2(); //função nivel2
         break;
     case 3:
         return 0;
