@@ -27,8 +27,7 @@ int SomarCol(){ //função para verificar a soma de coluna. Ainda incompleta
         }
     }
 }
-int SomarCol(){
-}
+
 int SomarRow(){
 }
 int SomarDia(){
@@ -111,6 +110,55 @@ int matriz1(){
     }
     if(escolha2 == 2){
 
+        int matriz[3][3]={{0,0,0},
+                          {0,0,0},
+                          {0,0,0}};
+        // Print Matriz vazia
+          for(i=0; i<3; i++){
+            for(j=0; j<3; j++){
+            printf("%5d", matriz[i][j]);
+            }
+                printf("\n");
+        }
+        // Inserção de dados da matriz
+        for ( i=0; i<3; i++ ){
+            for ( j=0; j<3; j++ ){
+            voltar2:
+
+            // repetição para linhas e colunas
+            while (cont_matriz < 7){
+            printf("\nEscolha a linha=");
+            scanf("%d", &i);
+            printf("Escolha a coluna= ");
+            scanf("%d", &j);
+            cont_matriz ++;
+
+
+                // validação da linha e coluna
+                if(( i > 2) || (j > 2)){
+                    printf("valor de linha/coluna invalido");
+                    goto voltar2;
+                }else{
+                printf ("\nValor [%d][%d] = ",i,j);
+                scanf ("%d", &matriz[ i ][ j ]);
+                    if((matriz[ i ][ j ]<1)||(matriz[ i ][ j ]>9)){
+                        printf("Valor invalido");
+                        goto voltar2;
+                    }
+                }
+
+                }
+            }
+        }
+        // Print Matriz com novos valores
+         for(i=0; i<3; i++){
+            for(j=0; j<3; j++){
+            printf("%5d", matriz[i][j]);
+            }
+                printf("\n");
+        }
+
+    return(0);
     }
 }
 
